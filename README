@@ -18,8 +18,17 @@ DESCRIPTION
     This module create simple pdf image slide from multiple images.
 
 METHODS
-  load_images
-  write_file
+  load_image($filename)
+    Load a image file.
+
+    Supported format are jpeg, tiff, pnm, png, and gif.
+
+  load_images(@filenames)
+    Load multiple images.
+
+  write_file($filename)
+    Generate pdf from loaded images, and write it to file.
+
 AUTHOR
     Daisuke Murase <typester@cpan.org>
 
