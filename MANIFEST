@@ -1,4 +1,5 @@
 Changes
+example/image2pdf.pl
 inc/Module/Install.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
