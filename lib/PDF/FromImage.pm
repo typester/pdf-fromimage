@@ -1,17 +1,26 @@
 package PDF::FromImage;
-use strict;
-use warnings;
+use 5.008001;
+use Moose;
 
-our $VERSION = '0.01';
+our $VERSION = '0.000001';
 
 =head1 NAME
 
-PDF::FromImage - Module abstract (<= 44 characters) goes here
+PDF::FromImage - Create PDF slide from images
 
 =head1 SYNOPSIS
-
-  use PDF::FromImage;
-  blah blah blah
+    
+    use PDF::FromImage;
+    
+    my $pdf = PDF::FromImage->new;
+    
+    $pdf->load_images(
+        'page1.png',
+        'page2.png',
+        :
+    );
+    
+    $pdf->write_file('output.pdf');
 
 =head1 DESCRIPTION
 
