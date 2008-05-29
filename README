@@ -1,27 +1,32 @@
-This is Perl module PDF::FromImage.
+NAME
+    PDF::FromImage - Create PDF slide from images
 
-INSTALLATION
+SYNOPSIS
+        use PDF::FromImage;
+        
+    my $pdf = PDF::FromImage->new;
+        
+    $pdf->load_images(
+            'page1.png',
+            'page2.png',
+            :
+        );
+        
+    $pdf->write_file('output.pdf');
 
-PDF::FromImage installation is straightforward. If your CPAN shell is set up,
-you should just be able to do
+DESCRIPTION
+    This module create simple pdf image slide from multiple images.
 
-    % cpan PDF::FromImage
+METHODS
+  load_images
+  write_file
+AUTHOR
+    Daisuke Murase <typester@cpan.org>
 
-Download it, unpack it, then build it as per the usual:
+COPYRIGHT
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
 
-    % perl Makefile.PL
-    % make && make test
+    The full text of the license can be found in the LICENSE file included
+    with this module.
 
-Then install it:
-
-    % make install
-
-DOCUMENTATION
-
-PDF::FromImage documentation is available as in POD. So you can do:
-
-    % perldoc PDF::FromImage
-
-to read the documentation online with your favorite pager.
-
-Daisuke Murase
