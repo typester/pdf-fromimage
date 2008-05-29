@@ -24,11 +24,29 @@ PDF::FromImage - Create PDF slide from images
 
 =head1 DESCRIPTION
 
-Stub documentation for this module was created by ExtUtils::ModuleMaker.
-It looks like the author of the extension was negligent enough
-to leave the stub unedited.
+This module create simple pdf image slide from multiple images.
 
-Blah blah blah.
+=head1 METHODS
+
+=head2 load_images
+
+=cut
+
+sub load_images {
+    my ($self, @images) = @_;
+
+    
+}
+
+=head2 write_file
+
+=cut
+
+sub write_file {
+    my ($self, $filename) = @_;
+
+    
+}
 
 =head1 AUTHOR
 
