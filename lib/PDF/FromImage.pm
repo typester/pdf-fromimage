@@ -2,7 +2,7 @@ package PDF::FromImage;
 use 5.008001;
 use Moose;
 
-our $VERSION = '0.000002';
+our $VERSION = '0.000003';
 
 use PDF::API2;
 use Imager;
