@@ -1,9 +1,15 @@
 package PDF::FromImage::Image;
 use Moose;
 
-has obj => (
+has src => (
     is       => 'ro',
-    isa      => 'PDF::API2::Resource::XObject::Image',
+    isa      => 'Str',
+    required => 1,
+);
+
+has format => (
+    is       => 'ro',
+    isa      => 'Str',
     required => 1,
 );
 

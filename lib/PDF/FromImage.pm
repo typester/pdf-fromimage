@@ -60,10 +60,9 @@ sub load_image {
 
     confess qq{This module doen't support "$format"} unless $supported;
 
-    my $method = "image_$format";
-
     my $image_object = PDF::FromImage::Image->new(
-        obj    => PDF::API2->new->$method($image),
+        src    => $image,
+        format => $format,
         width  => $imager->getwidth,
         height => $imager->getheight,
     );
@@ -94,17 +93,19 @@ sub write_file {
 
     my $pdf = PDF::API2->new;
 
-    my ($maxwidth)  = sort { $a <= $b } map { $_->width }  @{ $self->images };
-    my ($maxheight) = sort { $a <= $b } map { $_->height } @{ $self->images };
-
-    $pdf->mediabox($maxwidth, $maxheight);
-
     for my $image (@{ $self->images }) {
-        my $gfx = $pdf->page->gfx;
-        $gfx->image( $image->obj, 0, 0, $image->width, $image->height );
+        my $page = $pdf->page;
+        $page->mediabox( $image->width, $image->height );
+
+        my $loader = 'image_' . $image->format;
+        my $img = $pdf->$loader($image->src);
+
+        my $gfx = $page->gfx;
+        $gfx->image( $img, 0, 0 );
     }
 
     $pdf->saveas($filename);
+    $pdf->end;
 }
 
 =head1 AUTHOR
